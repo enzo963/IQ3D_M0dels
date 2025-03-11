@@ -1,0 +1,29 @@
+﻿/* إضافة تنسيقات جديدة لصفحة الاتصال */
+.contact-section {
+    padding: 4rem 1rem;
+    background: white;
+}
+
+    .contact-section h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        color: var(--primary-color);
+    }
+
+.profile-card .email {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+    .profile-card .email a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: color var(--transition-speed) ease;
+    }
+
+        .profile-card .email a:hover {
+            color: var(--primary-color);
+        }
