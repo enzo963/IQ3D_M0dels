@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Sa'aa Catholic Church - Digital Model</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- إضافة مكتبة Lightbox للصور -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <style>
+        /* Additional styles for this page */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+            .image-gallery a {
+                display: block;
+                position: relative;
+                overflow: hidden;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+            }
+
+                .image-gallery a:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+                }
+
+            .image-gallery img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+                display: block;
+            }
+
+            .image-gallery a:hover img {
+                transform: scale(1.08);
+            }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .image-gallery a:hover .image-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .model-flex-container {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .model-viewer-container {
+            width: 100%;
+            height: 550px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            background-color: #f0f2f5;
+            border-radius: 12px;
+        }
+
+        .model-description {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+            .model-description h3 {
+                color: #2c4057;
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 10px;
+            }
+        /* مؤثر التحميل */
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4a6d8c;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25px;
+            margin-left: -25px;
+            z-index: 10;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* تنسيق إرشادات الاستخدام */
+        .usage-instructions {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4a6d8c;
+        }
+
+        @media (max-width: 1024px) {
+            .image-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .model-flex-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>Digital Cultural Heritage Project</h1>
+        <p>Preserving Cultural Legacy Through Modern Technology</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About the Project</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#team">Our Team</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Al Sa'aa Catholic Church</h2>
+
+        <!-- Image Gallery - enhanced with Lightbox -->
+        <div class="image-gallery">
+            <a href="photo_Al Saa'a/8.png" data-lightbox="church-gallery" data-title="Front View of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/8.png" alt="Al Sa'aa Catholic Church Front View">
+                <div class="image-caption">Front View of the Church</div>
+            </a>
+            <a href="photo_Al Saa'a/9.png" data-lightbox="church-gallery" data-title="Side View of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/9.png" alt="Al Sa'aa Catholic Church Side View">
+                <div class="image-caption">Side View of the Church</div>
+            </a>
+            <a href="photo_Al Saa'a/10.png" data-lightbox="church-gallery" data-title="Interior of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/10.png" alt="Al Sa'aa Catholic Church Interior">
+                <div class="image-caption">Church Interior</div>
+            </a>
+            <a href="photo_Al Saa'a/11.png" data-lightbox="church-gallery" data-title="Bell Tower of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/11.png" alt="Al Sa'aa Catholic Church Bell Tower">
+                <div class="image-caption">The Bell Tower</div>
+            </a>
+            <a href="photo_Al Saa'a/12.png" data-lightbox="church-gallery" data-title="Historical Photo of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/12.png" alt="Al Sa'aa Catholic Church  Photo">
+                <div class="image-caption">The Bell Tower</div>
+            </a>
+        </div>
+
+        <br />        
+        <br />
+
+        <!-- Loading indicator -->
+        <div class="loader" id="modelLoader"></div>
+
+
+
+        <!-- Model Viewer (Full Width) -->
+        <div class="model-viewer-container">
+            <model-viewer id="churchModel"
+                          src="models/church.glb"
+                          alt="Al Sa'aa Catholic Church 3D Model"
+                          camera-controls
+                          touch-action="pan-y"
+                          shadow-intensity="1"
+                          exposure="1"
+                          poster="photo_models/M4.jpg"
+                          loading="eager"
+                          ar
+                          ar-modes="webxr scene-viewer quick-look">
+            </model-viewer>
+        </div>
+
+        <div class="model-description">
+            <h3>About the Church</h3>
+            <p>Al Sa'aa Catholic Church is one of the most significant historical religious buildings in Mosul. Built in the early 20th century, it features a unique blend of Gothic and local architectural styles.</p>
+
+            <h3>Historical Significance</h3>
+            <p>The church has been a symbol of religious coexistence in the region for decades. It was damaged during recent conflicts but has been digitally reconstructed as part of our preservation efforts.</p>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>All rights reserved © <span id="currentYear"></span> University of Mosul</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // تخصيص إعدادت Lightbox
+        lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true,
+        'fadeDuration': 300,
+        'imageFadeDuration': 300,
+        'positionFromTop': 100
+        });
+
+        // إظهار مؤشر التحميل عند تحميل النموذج
+        const modelLoader = document.getElementById('modelLoader');
+        const modelViewer = document.getElementById('churchModel');
+
+        // Show loader when starting to load
+        modelLoader.style.display = 'block';
+
+        // Hide loader when model is loaded
+        modelViewer.addEventListener('load', function() {
+        modelLoader.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
