@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -160,6 +160,50 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* تصميم قسم الفيديو */
+        .video-section {
+        text-align: center;
+         margin: 40px auto;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+   }
+
+    .video-section h2 {
+    color: #2c4057;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.video-section p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* تنسيق احترافي للفيديو */
+.video-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-wrapper video {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* تحسين العرض للأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .video-wrapper {
+        max-width: 100%;
+    }
+}
     </style>
 </head>
 <body>
@@ -183,28 +227,53 @@
 
         <!-- Image Gallery - enhanced with Lightbox -->
         <div class="image-gallery">
-            <a href="8.png" data-lightbox="church-gallery" data-title="Front View of Al Sa'aa Catholic Church">
-                <img src="8.png" alt="Al Sa'aa Catholic Church Front View">
+            <a href="photo_Al Saa'a/8.png" data-lightbox="church-gallery" data-title="Front View of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/8.png" alt="Al Sa'aa Catholic Church Front View">
                 <div class="image-caption">Front View of the Church</div>
             </a>
-            <a href="9.png" data-lightbox="church-gallery" data-title="Side View of Al Sa'aa Catholic Church">
-                <img src="9.png" alt="Al Sa'aa Catholic Church Side View">
+            <a href="photo_Al Saa'a/9.png" data-lightbox="church-gallery" data-title="Side View of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/9.png" alt="Al Sa'aa Catholic Church Side View">
                 <div class="image-caption">Side View of the Church</div>
             </a>
-            <a href="10.png" data-lightbox="church-gallery" data-title="Interior of Al Sa'aa Catholic Church">
-                <img src="10.png" alt="Al Sa'aa Catholic Church Interior">
+            <a href="photo_Al Saa'a/10.png" data-lightbox="church-gallery" data-title="Interior of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/10.png" alt="Al Sa'aa Catholic Church Interior">
                 <div class="image-caption">Church Interior</div>
             </a>
-            <a href="11.png" data-lightbox="church-gallery" data-title="Bell Tower of Al Sa'aa Catholic Church">
-                <img src="11.png" alt="Al Sa'aa Catholic Church Bell Tower">
+            <a href="photo_Al Saa'a/11.png" data-lightbox="church-gallery" data-title="Bell Tower of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/11.png" alt="Al Sa'aa Catholic Church Bell Tower">
                 <div class="image-caption">The Bell Tower</div>
             </a>
-            <a href="12.png" data-lightbox="church-gallery" data-title="Historical Photo of Al Sa'aa Catholic Church">
-                <img src="12.png" alt="Al Sa'aa Catholic Church  Photo">
+            <a href="photo_Al Saa'a/12.png" data-lightbox="church-gallery" data-title="Historical Photo of Al Sa'aa Catholic Church">
+                <img src="photo_Al Saa'a/12.png" alt="Al Sa'aa Catholic Church  Photo">
                 <div class="image-caption">The Bell Tower</div>
             </a>
         </div>
 
+        <br />        
+        <br />
+        <br />        
+        <br />
+        <br />        
+        <br />
+        <br />        
+        <br />
+        <div class="video-section">
+            <h2>Al Sa'aa Catholic Church</h2>
+        
+            <div class="video-wrapper">
+                <video controls poster="photo_Al Saa'a/10.png">
+                    <source src="video_for_alsaaa/vvss.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <br />        
+        <br />       
+        <br />
+        <br />        
+        <br />
+        <br />        
+        <br />
         <br />        
         <br />
 
