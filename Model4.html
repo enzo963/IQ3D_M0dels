@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <!-- إضافة مكتبة Lightbox للصور -->
+    <!-- Lightbox library for images -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
@@ -84,6 +84,21 @@
             overflow: hidden;
         }
 
+        .sketchfab-embed-wrapper {
+            width: 100%;
+            height: 550px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .sketchfab-embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
         model-viewer {
             width: 100%;
             height: 100%;
@@ -104,7 +119,8 @@
                 border-bottom: 1px solid #e0e0e0;
                 padding-bottom: 10px;
             }
-        /* مؤثر التحميل */
+            
+        /* Loading effect */
         .loader {
             border: 5px solid #f3f3f3;
             border-top: 5px solid #4a6d8c;
@@ -130,13 +146,76 @@
                 transform: rotate(360deg);
             }
         }
-        /* تنسيق إرشادات الاستخدام */
+        
+        /* Usage instructions styling */
         .usage-instructions {
             background-color: #f8f9fa;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 20px;
             border-left: 4px solid #4a6d8c;
+        }
+        
+        /* 3D models section styling */
+        .models-section {
+            margin: 50px 0;
+        }
+        
+        .models-section h2 {
+            text-align: center;
+            color: #2c4057;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .model-header {
+            background-color: #f8f9fa;
+            color: #2c4057;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            font-weight: 600;
+            margin-bottom: 0;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .model-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0 20px;
+        }
+        
+        .model-tab {
+            padding: 12px 25px;
+            background-color: #f0f2f5;
+            color: #2c4057;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .model-tab.active {
+            background-color: #4a6d8c;
+            color: white;
+            box-shadow: 0 4px 10px rgba(74,109,140,0.3);
+        }
+        
+        .model-tab:hover:not(.active) {
+            background-color: #e4e9f0;
+            transform: translateY(-2px);
+        }
+        
+        .model-container {
+            display: none;
+        }
+        
+        .model-container.active {
+            display: block;
         }
 
         @media (max-width: 1024px) {
@@ -153,6 +232,16 @@
             .model-flex-container {
                 flex-direction: column;
             }
+            
+            .model-tabs {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .model-tab {
+                width: 80%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -160,50 +249,90 @@
                 grid-template-columns: 1fr;
             }
         }
-        /* تصميم قسم الفيديو */
+        
+        /* Video section styling */
         .video-section {
-        text-align: center;
-         margin: 40px auto;
-        padding: 20px;
-        background: #f9f9f9;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-   }
+            text-align: center;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    .video-section h2 {
-    color: #2c4057;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
+        .video-section h2 {
+            color: #2c4057;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
 
-.video-section p {
-    color: #555;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
+        .video-section p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
 
-/* تنسيق احترافي للفيديو */
-.video-wrapper {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+        /* Professional video styling */
+        .video-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
 
-.video-wrapper video {
-    width: 100%;
-    display: block;
-    border-radius: 12px;
-}
+        .video-wrapper video {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+        }
 
-/* تحسين العرض للأجهزة الصغيرة */
-@media (max-width: 768px) {
-    .video-wrapper {
-        max-width: 100%;
-    }
-}
+        /* Video gallery styling */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+
+        .video-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .video-item video {
+            width: 100%;
+            display: block;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .video-item-caption {
+            background: #fff;
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+            color: #2c4057;
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .video-wrapper {
+                max-width: 100%;
+            }
+            
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -249,53 +378,123 @@
             </a>
         </div>
 
-        <br />        
-        <br />
-        <br />        
-        <br />
-        <br />        
-        <br />
-        <br />        
-        <br />
+        <!-- Main Video Section -->
         <div class="video-section">
-            <h2>Al Sa'aa Catholic Church</h2>
-        
+            <h2>Al Sa'aa Catholic Church - Introduction</h2>
             <div class="video-wrapper">
                 <video controls poster="10.png">
                     <source src="vvss.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
+            
+            <!-- Additional Videos Gallery -->
+            <h2>Explore More Videos</h2>
+            <div class="video-gallery">
+                <div class="video-item">
+                    <video controls poster="8.png">
+                        <source src="video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-item-caption">Church Exterior Tour</div>
+                </div>
+                <div class="video-item">
+                    <video controls poster="9.png">
+                        <source src="video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-item-caption">Architectural Details</div>
+                </div>
+                <div class="video-item">
+                    <video controls poster="10.png">
+                        <source src="video3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-item-caption">Interior Features</div>
+                </div>
+                <div class="video-item">
+                    <video controls poster="11.png">
+                        <source src="video4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-item-caption">Restoration Process</div>
+                </div>
+            </div>
         </div>
-        <br />        
-        <br />       
-        <br />
-        <br />        
-        <br />
-        <br />        
-        <br />
-        <br />        
-        <br />
 
         <!-- Loading indicator -->
         <div class="loader" id="modelLoader"></div>
 
-
-
-        <!-- Model Viewer (Full Width) -->
-        <div class="model-viewer-container">
-            <model-viewer id="churchModel"
-                          src="models/church.glb"
-                          alt="Al Sa'aa Catholic Church 3D Model"
-                          camera-controls
-                          touch-action="pan-y"
-                          shadow-intensity="1"
-                          exposure="1"
-                          poster="photo_models/M4.jpg"
-                          loading="eager"
-                          ar
-                          ar-modes="webxr scene-viewer quick-look">
-            </model-viewer>
+        <!-- 3D Models Section with Tabs -->
+        <div class="models-section">
+            <h2>3D Models of Al Sa'aa Catholic Church</h2>
+            
+            <div class="usage-instructions">
+                <p>Use the buttons below to navigate between different 3D models of the church. You can rotate, zoom in/out using your mouse or touchscreen.</p>
+            </div>
+            
+            <!-- Tabs for Model Navigation -->
+            <div class="model-tabs">
+                <button class="model-tab active" onclick="showModel('complete-model')">Complete Model</button>
+                <button class="model-tab" onclick="showModel('front-model')">Front View</button>
+                <button class="model-tab" onclick="showModel('back-model')">Back View</button>
+                <button class="model-tab" onclick="showModel('interior-model')">Interior View</button>
+            </div>
+            
+            <!-- Model Containers -->
+            <div id="complete-model" class="model-container active">
+                <h3 class="model-header">Complete Church Model</h3>
+                <div class="sketchfab-embed-wrapper"> 
+                    <iframe title="alsaaa church mosul" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/438f493f9b0d46da9c4ebd062a0d570f/embed"> 
+                    </iframe> 
+                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
+                        <a href="https://sketchfab.com/3d-models/alsaaa-church-mosul-438f493f9b0d46da9c4ebd062a0d570f?utm_medium=embed&utm_campaign=share-popup&utm_content=438f493f9b0d46da9c4ebd062a0d570f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> alsaaa church mosul </a> by 
+                        <a href="https://sketchfab.com/amarabd581?utm_medium=embed&utm_campaign=share-popup&utm_content=438f493f9b0d46da9c4ebd062a0d570f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> amarabd581 </a> on 
+                        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=438f493f9b0d46da9c4ebd062a0d570f" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div id="front-model" class="model-container">
+                <h3 class="model-header">Church Front Façade</h3>
+                <div class="sketchfab-embed-wrapper"> 
+                    <iframe title="church 2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bb5a99b39bf7433db9574b109d6e90e0/embed"> 
+                    </iframe> 
+                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
+                        <a href="https://sketchfab.com/3d-models/church-2-bb5a99b39bf7433db9574b109d6e90e0?utm_medium=embed&utm_campaign=share-popup&utm_content=bb5a99b39bf7433db9574b109d6e90e0" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> church 2 </a> by 
+                        <a href="https://sketchfab.com/amarabd581?utm_medium=embed&utm_campaign=share-popup&utm_content=bb5a99b39bf7433db9574b109d6e90e0" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> amarabd581 </a> on 
+                        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=bb5a99b39bf7433db9574b109d6e90e0" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div id="back-model" class="model-container">
+                <h3 class="model-header">Church Back View</h3>
+                <div class="sketchfab-embed-wrapper"> 
+                    <iframe title="3" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/891277943ee14085bff013e07c439080/embed"> 
+                    </iframe> 
+                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
+                        <a href="https://sketchfab.com/3d-models/3-891277943ee14085bff013e07c439080?utm_medium=embed&utm_campaign=share-popup&utm_content=891277943ee14085bff013e07c439080" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 3 </a> by 
+                        <a href="https://sketchfab.com/amarabd581?utm_medium=embed&utm_campaign=share-popup&utm_content=891277943ee14085bff013e07c439080" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> amarabd581 </a> on 
+                        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=891277943ee14085bff013e07c439080" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Added new fourth model container for Interior View -->
+            <div id="interior-model" class="model-container">
+                <h3 class="model-header">Church Interior View</h3>
+                <div class="sketchfab-embed-wrapper"> 
+                    <!-- You'll need to replace this with your actual interior model embed code -->
+                    <iframe title="Interior View" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/your-interior-model-id/embed"> 
+                    </iframe> 
+                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
+                        <a href="https://sketchfab.com/3d-models/interior-view-model-id?utm_medium=embed&utm_campaign=share-popup&utm_content=model-id" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Church Interior </a> by 
+                        <a href="https://sketchfab.com/amarabd581?utm_medium=embed&utm_campaign=share-popup&utm_content=model-id" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> amarabd581 </a> on 
+                        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=model-id" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div class="model-description">
@@ -304,6 +503,16 @@
 
             <h3>Historical Significance</h3>
             <p>The church has been a symbol of religious coexistence in the region for decades. It was damaged during recent conflicts but has been digitally reconstructed as part of our preservation efforts.</p>
+            
+            <h3>3D Models Explanation</h3>
+            <p>The four digital models presented above showcase different aspects of Al Sa'aa Catholic Church's architecture:</p>
+            <ul>
+                <li><strong>Complete Model:</strong> Shows the entire church structure with all architectural details.</li>
+                <li><strong>Front View:</strong> Highlights the front facade including the main entrance and bell tower.</li>
+                <li><strong>Back View:</strong> Displays the rear portion of the church with its unique architectural elements.</li>
+                <li><strong>Interior View:</strong> Provides a detailed look at the church's interior spaces, including altars, columns, and decorative elements.</li>
+            </ul>
+            <p>These models were created using photogrammetry techniques and detailed measurements to ensure accurate digital preservation of this historical landmark.</p>
         </div>
     </div>
 
@@ -314,25 +523,53 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // تخصيص إعدادت Lightbox
+        // Lightbox configuration
         lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true,
-        'fadeDuration': 300,
-        'imageFadeDuration': 300,
-        'positionFromTop': 100
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'fadeDuration': 300,
+            'imageFadeDuration': 300,
+            'positionFromTop': 100
         });
 
-        // إظهار مؤشر التحميل عند تحميل النموذج
+        // Function to show selected model and hide others
+        function showModel(modelId) {
+            // Hide all models
+            document.querySelectorAll('.model-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Remove active state from all buttons
+            document.querySelectorAll('.model-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate requested model
+            document.getElementById(modelId).classList.add('active');
+            
+            // Activate corresponding button
+            document.querySelectorAll('.model-tab').forEach(tab => {
+                if (tab.onclick.toString().includes(modelId)) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Show loading indicator when changing models
+            const modelLoader = document.getElementById('modelLoader');
+            modelLoader.style.display = 'block';
+            
+            // Hide loading indicator after a short delay
+            setTimeout(() => {
+                modelLoader.style.display = 'none';
+            }, 1500);
+        }
+
+        // Show loading indicator when page loads
         const modelLoader = document.getElementById('modelLoader');
-        const modelViewer = document.getElementById('churchModel');
-
-        // Show loader when starting to load
-        modelLoader.style.display = 'block';
-
-        // Hide loader when model is loaded
-        modelViewer.addEventListener('load', function() {
-        modelLoader.style.display = 'none';
+        
+        // Hide loading indicator after page loads
+        window.addEventListener('load', function() {
+            modelLoader.style.display = 'none';
         });
     </script>
 </body>
